@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/financial-summary/route": "app/api/financial-summary/route.js",
+  "/api/expenses-by-category/route": "app/api/expenses-by-category/route.js",
+  "/api/monthly-income-expenses/route": "app/api/monthly-income-expenses/route.js"
+}
