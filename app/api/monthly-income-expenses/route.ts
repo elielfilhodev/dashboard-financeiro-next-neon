@@ -23,7 +23,8 @@ export async function GET(request: NextRequest) {
         userId,
         date: {
           gte: sixMonthsAgo
-        }
+        },
+        isActive: true
       },
       select: {
         amount: true,

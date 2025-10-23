@@ -43,6 +43,8 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   image         String?
+  passwordHash  String?
+  isActive      Boolean   @default(true)
   accounts      Account[]
   sessions      Session[]
   transactions  Transaction[]
@@ -64,6 +66,7 @@ model Category {
   name          String
   type          CategoryType
   color         String        @default("#3B82F6")
+  isActive      Boolean       @default(true)
   userId        String
   user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   transactions  Transaction[]
@@ -81,6 +84,7 @@ model Transaction {
   category    Category?     @relation(fields: [categoryId], references: [id], onDelete: SetNull)
   userId      String
   user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  isActive    Boolean       @default(true)
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
 }

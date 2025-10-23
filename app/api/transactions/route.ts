@@ -15,7 +15,8 @@ export async function GET(request: NextRequest) {
 
     const transactions = await prisma.transaction.findMany({
       where: {
-        userId
+        userId,
+        isActive: true
       },
       include: {
         category: true
@@ -54,7 +55,8 @@ export async function POST(request: NextRequest) {
         type,
         date: new Date(date),
         categoryId: categoryId || null,
-        userId
+        userId,
+        isActive: true
       },
       include: {
         category: true

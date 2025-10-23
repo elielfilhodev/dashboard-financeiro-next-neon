@@ -77,25 +77,9 @@ export default function SignIn() {
                 {isLoading ? 'Entrando...' : 'Entrar'}
               </Button>
             </form>
-            
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300" />
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Ou continue com</span>
-                </div>
-              </div>
-              
-              <div className="mt-6 grid grid-cols-1 gap-3">
-                <Button
-                  variant="outline"
-                  onClick={() => signIn('google')}
-                >
-                  Google
-                </Button>
-              </div>
+            <div className="mt-6 text-center text-sm text-gray-600">
+              Não tem conta?{' '}
+              <a className="text-blue-600 hover:underline" href="/auth/register">Cadastre-se</a>
             </div>
           </CardContent>
         </Card>

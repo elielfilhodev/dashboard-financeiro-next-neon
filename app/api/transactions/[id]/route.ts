@@ -32,10 +32,9 @@ export async function DELETE(
       )
     }
 
-    await prisma.transaction.delete({
-      where: {
-        id: transactionId
-      }
+    await prisma.transaction.update({
+      where: { id: transactionId },
+      data: { isActive: false }
     })
 
     return NextResponse.json({ message: 'Transação excluída com sucesso' })

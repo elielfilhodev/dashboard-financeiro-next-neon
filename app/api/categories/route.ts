@@ -15,7 +15,8 @@ export async function GET(request: NextRequest) {
 
     const categories = await prisma.category.findMany({
       where: {
-        userId
+        userId,
+        isActive: true
       },
       include: {
         _count: {
@@ -56,7 +57,8 @@ export async function POST(request: NextRequest) {
         name,
         type,
         color,
-        userId
+        userId,
+        isActive: true
       }
     })
 

@@ -4,7 +4,7 @@ Um dashboard financeiro completo e responsivo construído com Next.js, Prisma e 
 
 ## 🚀 Funcionalidades
 
-- **Autenticação**: Login com Google ou credenciais
+- **Autenticação**: Login com credenciais (email/senha)
 - **Gestão de Transações**: Adicionar, editar e excluir receitas e despesas
 - **Categorização**: Organize transações por categorias personalizáveis
 - **Visualizações**: Gráficos de despesas por categoria e receitas vs despesas
@@ -57,9 +57,7 @@ DATABASE_URL="postgresql://username:password@ep-xxx.us-east-1.aws.neon.tech/neon
 NEXTAUTH_URL="http://localhost:3000"
 NEXTAUTH_SECRET="sua-chave-secreta-aqui"
 
-# OAuth Providers (opcional)
-GOOGLE_CLIENT_ID="seu-google-client-id"
-GOOGLE_CLIENT_SECRET="seu-google-client-secret"
+<!-- Sem provedores OAuth neste projeto -->
 ```
 
 ### 4. Configure o banco de dados
@@ -103,13 +101,7 @@ O projeto inclui um schema completo com:
 
 ## 🔐 Configuração de Autenticação
 
-### Google OAuth
-
-1. Acesse [Google Cloud Console](https://console.cloud.google.com)
-2. Crie um novo projeto ou selecione um existente
-3. Ative a Google+ API
-4. Crie credenciais OAuth 2.0
-5. Adicione `http://localhost:3000/api/auth/callback/google` como URI de redirecionamento
+<!-- Login via Google removido -->
 
 <!-- Login via GitHub removido -->
 

@@ -15,6 +15,7 @@
     "create-user": "tsx scripts/create-user.ts"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "@next-auth/prisma-adapter": "^1.0.7",
     "@prisma/client": "^5.7.1",
     "@radix-ui/react-dialog": "^1.0.5",

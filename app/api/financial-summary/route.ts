@@ -18,7 +18,8 @@ export async function GET(request: NextRequest) {
       prisma.transaction.aggregate({
         where: {
           userId,
-          type: 'INCOME'
+          type: 'INCOME',
+          isActive: true
         },
         _sum: {
           amount: true
@@ -27,7 +28,8 @@ export async function GET(request: NextRequest) {
       prisma.transaction.aggregate({
         where: {
           userId,
-          type: 'EXPENSE'
+          type: 'EXPENSE',
+          isActive: true
         },
         _sum: {
           amount: true
@@ -39,7 +41,8 @@ export async function GET(request: NextRequest) {
           type: 'INCOME',
           date: {
             gte: new Date(new Date().getFullYear(), new Date().getMonth(), 1)
-          }
+          },
+          isActive: true
         },
         _sum: {
           amount: true
@@ -51,7 +54,8 @@ export async function GET(request: NextRequest) {
           type: 'EXPENSE',
           date: {
             gte: new Date(new Date().getFullYear(), new Date().getMonth(), 1)
-          }
+          },
+          isActive: true
         },
         _sum: {
           amount: true

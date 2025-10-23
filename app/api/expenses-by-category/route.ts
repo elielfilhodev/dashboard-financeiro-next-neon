@@ -17,7 +17,8 @@ export async function GET(request: NextRequest) {
       by: ['categoryId'],
       where: {
         userId,
-        type: 'EXPENSE'
+        type: 'EXPENSE',
+        isActive: true
       },
       _sum: {
         amount: true
@@ -27,7 +28,8 @@ export async function GET(request: NextRequest) {
     const categories = await prisma.category.findMany({
       where: {
         userId,
-        type: 'EXPENSE'
+        type: 'EXPENSE',
+        isActive: true
       }
     })
 
