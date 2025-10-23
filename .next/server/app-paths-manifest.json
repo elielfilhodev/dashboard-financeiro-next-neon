@@ -1,13 +1,15 @@
 {
   "/_not-found": "app/_not-found.js",
+  "/api/expenses-by-category/route": "app/api/expenses-by-category/route.js",
   "/api/categories/route": "app/api/categories/route.js",
   "/api/categories/[id]/route": "app/api/categories/[id]/route.js",
-  "/api/expenses-by-category/route": "app/api/expenses-by-category/route.js",
   "/api/financial-summary/route": "app/api/financial-summary/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/auth/register/route": "app/api/auth/register/route.js",
   "/api/monthly-income-expenses/route": "app/api/monthly-income-expenses/route.js",
-  "/auth/signin/page": "app/auth/signin/page.js",
   "/api/transactions/[id]/route": "app/api/transactions/[id]/route.js",
-  "/page": "app/page.js",
-  "/api/transactions/route": "app/api/transactions/route.js"
+  "/api/transactions/route": "app/api/transactions/route.js",
+  "/auth/register/page": "app/auth/register/page.js",
+  "/auth/signin/page": "app/auth/signin/page.js",
+  "/page": "app/page.js"
 }
