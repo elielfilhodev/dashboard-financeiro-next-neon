@@ -88,18 +88,12 @@ export default function SignIn() {
                 </div>
               </div>
               
-              <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="mt-6 grid grid-cols-1 gap-3">
                 <Button
                   variant="outline"
                   onClick={() => signIn('google')}
                 >
                   Google
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => signIn('github')}
-                >
-                  GitHub
                 </Button>
               </div>
             </div>

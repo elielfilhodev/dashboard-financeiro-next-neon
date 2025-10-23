@@ -4,7 +4,7 @@ Um dashboard financeiro completo e responsivo construído com Next.js, Prisma e 
 
 ## 🚀 Funcionalidades
 
-- **Autenticação**: Login com Google, GitHub ou credenciais
+- **Autenticação**: Login com Google ou credenciais
 - **Gestão de Transações**: Adicionar, editar e excluir receitas e despesas
 - **Categorização**: Organize transações por categorias personalizáveis
 - **Visualizações**: Gráficos de despesas por categoria e receitas vs despesas
@@ -60,8 +60,6 @@ NEXTAUTH_SECRET="sua-chave-secreta-aqui"
 # OAuth Providers (opcional)
 GOOGLE_CLIENT_ID="seu-google-client-id"
 GOOGLE_CLIENT_SECRET="seu-google-client-secret"
-GITHUB_CLIENT_ID="seu-github-client-id"
-GITHUB_CLIENT_SECRET="seu-github-client-secret"
 ```
 
 ### 4. Configure o banco de dados
@@ -113,14 +111,7 @@ O projeto inclui um schema completo com:
 4. Crie credenciais OAuth 2.0
 5. Adicione `http://localhost:3000/api/auth/callback/google` como URI de redirecionamento
 
-### GitHub OAuth
-
-1. Acesse [GitHub Settings > Developer settings > OAuth Apps](https://github.com/settings/developers)
-2. Clique em "New OAuth App"
-3. Preencha os dados:
-   - Application name: Dashboard Financeiro
-   - Homepage URL: http://localhost:3000
-   - Authorization callback URL: http://localhost:3000/api/auth/callback/github
+<!-- Login via GitHub removido -->
 
 ## 📱 Responsividade
 
