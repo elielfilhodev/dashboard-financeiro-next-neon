@@ -7,7 +7,7 @@
   "/api/financial-summary/route": "app/api/financial-summary/route.js",
   "/api/monthly-income-expenses/route": "app/api/monthly-income-expenses/route.js",
   "/api/transactions/[id]/route": "app/api/transactions/[id]/route.js",
-  "/api/transactions/route": "app/api/transactions/route.js",
   "/auth/signin/page": "app/auth/signin/page.js",
+  "/api/transactions/route": "app/api/transactions/route.js",
   "/page": "app/page.js"
 }
