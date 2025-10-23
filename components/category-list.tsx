@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { CategoryEditDialog } from '@/components/category-edit-dialog'
 import { Plus, Trash2, Edit } from 'lucide-react'
 
 interface Category {
@@ -29,6 +30,8 @@ export function CategoryList() {
   const [categories, setCategories] = useState<Category[]>([])
   const [loading, setLoading] = useState(true)
   const [open, setOpen] = useState(false)
+  const [editingCategory, setEditingCategory] = useState<Category | null>(null)
+  const [editDialogOpen, setEditDialogOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     type: 'EXPENSE' as 'INCOME' | 'EXPENSE',
@@ -93,6 +96,15 @@ export function CategoryList() {
     } catch (error) {
       console.error('Erro ao excluir categoria:', error)
     }
+  }
+
+  const handleEdit = (category: Category) => {
+    setEditingCategory(category)
+    setEditDialogOpen(true)
+  }
+
+  const handleEditSave = () => {
+    fetchCategories() // Recarregar a lista
   }
 
   if (loading) {
@@ -213,10 +225,7 @@ export function CategoryList() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={() => {
-                    // Implementar edição
-                    console.log('Editar categoria:', category.id)
-                  }}
+                  onClick={() => handleEdit(category)}
                 >
                   <Edit className="h-4 w-4" />
                 </Button>
@@ -257,6 +266,13 @@ export function CategoryList() {
           </CardContent>
         </Card>
       )}
+      
+      <CategoryEditDialog
+        category={editingCategory}
+        open={editDialogOpen}
+        onOpenChange={setEditDialogOpen}
+        onSave={handleEditSave}
+      />
     </div>
   )
 }

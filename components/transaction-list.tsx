@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { CurrencyDisplay } from '@/components/ui/currency-display'
+import { TransactionEditDialog } from '@/components/transaction-edit-dialog'
 import { formatCurrency, formatDate } from '@/lib/utils'
 import { Trash2, Edit } from 'lucide-react'
 
@@ -24,6 +25,8 @@ export function TransactionList() {
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [loading, setLoading] = useState(true)
   const [mounted, setMounted] = useState(false)
+  const [editingTransaction, setEditingTransaction] = useState<Transaction | null>(null)
+  const [editDialogOpen, setEditDialogOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -58,6 +61,15 @@ export function TransactionList() {
     } catch (error) {
       console.error('Erro ao excluir transação:', error)
     }
+  }
+
+  const handleEdit = (transaction: Transaction) => {
+    setEditingTransaction(transaction)
+    setEditDialogOpen(true)
+  }
+
+  const handleEditSave = () => {
+    fetchTransactions() // Recarregar a lista
   }
 
   if (!mounted || loading) {
@@ -148,10 +160,7 @@ export function TransactionList() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      onClick={() => {
-                        // Implementar edição
-                        console.log('Editar transação:', transaction.id)
-                      }}
+                      onClick={() => handleEdit(transaction)}
                     >
                       <Edit className="h-4 w-4" />
                     </Button>
@@ -169,6 +178,13 @@ export function TransactionList() {
           </div>
         )}
       </CardContent>
+      
+      <TransactionEditDialog
+        transaction={editingTransaction}
+        open={editDialogOpen}
+        onOpenChange={setEditDialogOpen}
+        onSave={handleEditSave}
+      />
     </Card>
   )
 }
